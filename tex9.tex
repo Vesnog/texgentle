@@ -1,0 +1,115 @@
+\parindent = 0 pt \parskip = 12 pt
+Here is the text before the hrule.
+\bigskip
+\hrule width 3 in
+And here is some text after the hrule.
+
+%\moveright 1 in \vbox{\hrule  width 3 in} 
+
+%\moveright 1 in \vbox{\hrule  width 3 in} 
+
+%\moveright 1 in \vbox{\hrule  width 3 in} 
+\smallskip
+% Space to ensure TeX is in vertical mode
+\moveright 1 in
+\vbox{
+\hrule width 3 in 
+\vskip 15 pt
+\hrule width 3 in 
+\vskip 15 pt
+\hrule width 3 in
+}
+\bigskip
+
+$$ \vbox{
+\offinterlineskip
+\settabs \+ & \hskip 1 cm & \hskip 1 cm & \hskip 1 cm & \cr
+\hrule
+\+  & \vrule height 1 cm  &  \vrule height 1 cm &  \vrule height 1 cm \ &  \vrule height 1 cm  \cr
+\hrule
+\+  & \vrule height 1 cm \ &  \vrule height 1 cm \ &  \vrule height 1 cm \ &  \vrule height 1 cm  \cr
+\hrule
+\+  & \vrule height 1 cm \ &  \vrule height 1 cm \ &  \vrule height 1 cm \ &  \vrule height 1 cm  \cr
+\hrule
+} $$
+
+\vbox{
+\hrule
+\hbox to \hsize{\vrule\strut\hfil The text to be boxed \hfil\vrule}
+\hrule
+}
+
+\vskip 1 cm
+
+\def\boxtexti#1{%
+\vbox{%
+\hrule
+\hbox{\strut\vrule{} #1 \vrule}%
+\hrule
+}%
+}
+
+\def\boxtextiu#1{%
+\vbox{%
+\hrule
+\hbox{\strut\vrule{} #1 \vrule}%
+}%
+}
+
+\def\boxtextii#1{%
+\lower 3.5pt 
+\vbox{%
+\hrule
+\hbox{\strut\vrule{} #1 \vrule}%
+\hrule
+}%
+}
+
+\def\boxtextlu#1{%
+\vbox{%
+\hrule
+\hbox{\strut\vrule{} #1 }%
+}%
+}
+
+
+\def\boxtextl#1{%
+\vbox{%
+\hrule
+\hbox{\strut\vrule{} #1 }%
+\hrule
+}%
+}
+
+\let\boxtext\boxtexti
+
+$$\vbox{\offinterlineskip
+\hbox{\boxtext{6}\boxtext{1}\boxtext{8}}
+\hbox{\boxtext{7}\boxtext{5}\boxtext{3}}
+\hbox{\boxtext{2}\boxtext{9}\boxtext{4}}
+}$$
+
+$$\vbox{\offinterlineskip
+\hbox{\boxtextlu{6}\boxtextlu{1}\boxtextiu{8}}
+\hbox{\boxtextlu{7}\boxtextlu{5}\boxtextiu{3}}
+\hbox{\boxtextl{2}\boxtextl{9}\boxtexti{4}}
+}$$
+\let\boxtext\boxtexti
+
+I'm \boxtext{not} quite \boxtext{sure} why \boxtext{someone} would \boxtext{do} this \boxtext{since} the
+\boxtext{result} is \boxtext{pretty} strange.
+
+\let\boxtext\boxtextii
+I'm \boxtext{not} quite \boxtext{sure} why \boxtext{someone} would \boxtext{do} this \boxtext{since} the
+\boxtext{result} is \boxtext{pretty} strange.
+
+\vfill
+\eject
+
+\vbox{%
+\hrule
+\hbox to \hsize{\strut\vrule{} \TeX \hfil Section \vrule}%
+\hrule
+}%
+\bye
+
